@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+		<link rel="icon" href="data:,">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Obligatorio</title>
+        <link rel="stylesheet" href="css/miEstilo.css">
+    </head>
+    <body>
+
+<div id="contenedor">
+    <div id="cabezal" class="clearfix">
+      <img id="logo" src="https://develotion.com/assets/img/logo.jpg" alt="logo">
+      <ul id="navPrincipal">
+            <li id="MenuIniciarSesion">
+                <a >Iniciar Sesion</a>
+            </li>
+            <li id="MenuRegistrarse">
+                <a >Registrarse</a>
+            </li>
+
+            <div id="MenuDocente" style="display: none;" >
+
+                <li id="btnMenuAsignarAlumnos">
+                    <a >Asignar Alumnos</a>
+                </li>
+                <li id="btnMenuIngresoEjercicios">
+                    <a>Ingreso de Ejercicios</a>
+                </li>
+                <li id="btnMenuDevolucionEjercicios">
+                    <a>Devolucion de los ejercicios entregados</a>
+                </li>
+                <li id="btnMenuVerListaEntregas">
+                    <a>Ver lista de entregas</a>
+                </li>
+                <li id="btnMenuVisualizarInformacionEstadisticaDOCENTE">
+                    <a>Visualizar información estadística</a>
+                </li>
+                <li id="btnMenuCerrarSesionDocente">
+                    <a>Cerrar sesión</a>
+                </li>
+                
+            </div>   
+
+            <div id="MenuAlumnos" style="display: none;" >
+
+              <li id="MenuEntregarTareas">
+                  <a >Entrega tarea</a>
+              </li>
+              <li id="MenuEjerciciosPlanteados">
+                  <a>Ejercicios planteados por docente</a>
+              </li>
+              <li id="MenuVerEjerciciosResultos">
+                  <a>Ver ejercicios resueltos</a>
+              </li>
+              <li id="MenuVisualizarInformacionEstadisticaALUMNOS">
+                  <a>Visualizar información estadística</a>
+              </li>
+              <li id="btnMenuCerrarSesionAlumno">
+                  <a>Cerrar sesión</a>
+              </li>
+              
+          </div>
+
+      </ul>
+      
+    </div><!-- FIN CABEZAL -->
+
+    <div id="contenido">
+        <div id="IniciarSecion">
+            <h3>Inicio Sesion</h3>
+            <label for="nombreUsuario">Usuario</label>
+            <input type="text" id="nombreUsuario">
+            <br><br>
+            <label for="password">Contraseña</label>
+            <input type="password" id="password">
+            <br><br>
+            <input type="button" id="btnIniciarSesion" value="Iniciar Sesion">
+            <br><br>
+            <div id="mensajeInicioSesion"></div>
+          </div>
+
+          <div id="AsignarPerfilRegistro" style="display: none;">
+            <h3>Registro</h3> 
+            <select id="seleccionarPerfil">
+              <option value="">Seleccione...</option>
+              <option value="alumno">Alumno</option>
+              <option value="docente">Docente</option>
+            </select>
+            <br><br>
+            <label for="nombreRegistro">Nombre</label>
+            <input type=text id="nombreRegistro">
+            <br><br>
+            <label for="nombreUsuarioRegistro">Usuario</label>
+            <input type="text" id="nombreUsuarioRegistro">
+            <br><br>
+            <label for="passwordRegistro">Contraseña</label>
+            <input type="password" id="passwordRegistro">
+            <br><br>
+            <div id="seleccionarDocente">
+              <label for ="asignarDocente">Docente:</label>
+              <select id="asignarDocente">
+              </select>
+            </div>  
+            <br><br>
+            <input type="button" value="Registrar" id="btnRegisrtar">
+            <br><br>
+            <div id="mensajesRegistro"></div>
+          </div>  
+                  
+          <div id="AsignarAlumnos" style="display: none;">
+            <h3>Asignar Alumnos</h3>
+            <div id="tablaAlumnos"></div>
+            <br><br>
+          </div>
+    
+            <div id="IngresoEjercicios" style="display: none;">
+              <h3>Ingreso de ejercicios</h3>
+              <select id="asignarNivelEjercicio">
+                <option value=''>Seleccione...</option>
+                <option value="Inicial">Inicial</option>
+                <option value="Intermedio">Intermedio</option>
+                <option value="Avanzado">Avanzado</option>       
+              </select>
+              <label>Título de ejercicio: </label><input type="text" id="tituloEjercicioDocenteAlumno" >
+              <br><br>
+              <label>Descripcion: </label>
+              <br>
+              <textarea id="descripcionEjercicioDocenteAlumno" width = "20" height="20"></textarea>
+              <br><br>
+              <label>Insertar imagen : </label><input type="file" id='imagenEjercicioaIngresar'> 
+              <br><br>
+              <input type="button" id="btnIngresoEjercicios" value="Guardar cambios">
+              <br><br>
+              <div id='MensajeIngresoEjercicioDocente'></div>
+            </div>
+    
+            <div id="DevolucionEjercicios" style="display: none;">
+              <h3>Devolucion de los ejercicios entregados</h3>
+              <label for="asignarAlumnosDevolucion">Seleccionar Alumno : </label>
+              <select id="asignarAlumnosDevolucion">
+              </select>
+              <br><br>
+              <div id="comboEjercicios" style="display: none;" >
+                <label for="seleccionarEjercicioSinDevolucion">Seleccionar Ejercicio : </label>
+              <select id="seleccionarEjercicioSinDevolucion">
+                <option value="">--Seleccionar--</option>
+              </select>
+              </div>
+              <br><br>
+              <input type="button" value="Ver Ejercicio" id="verEjerciciosAlumnos">
+              <br><br>
+              <div id="VerEjercicioEntregadoParaCorreccion"></div>
+              <br><br>
+              <label for="puntajeEjercicio">Ingresar puntaje : </label><input type="number" id="puntajeEjercicio">
+              <br><br>
+              <label for="comentarioEjercicio"> Comentarios : </label>
+              <textarea id="comentarioEjercicio">
+              </textarea>
+              <br><br>
+            <input type="button" id="btnEntregarDevolucion" value="Hacer Devolucion">
+            <br><br>
+            <div id="mensajeDevolucionEjercicios"></div>      
+            </div>
+    
+            <div id="VerListaEntregas" style="display: none;" >
+              <h3>Ver lista de entregas</h3>
+              <div id="VerTablaListadeEntregas"></div>
+            </div>
+    
+            <div id="VisualizarInformacionEstadisticaDOCENTE" style="display: none;">
+              <h3>Visualizar información estadística</h3>
+              <!--<input type="button" id="visualizarEstadisticasDocente" value="Visualizar Estadisticas">--><br><br>
+              <div id="EstadisticasDocente"></div>
+            </div>
+    
+              
+          
+    <!--Alumno-->
+      
+          
+          <div id="EntregarTareas" style="display: none;">
+            <h3>Entrega tarea</h3>
+            <label>Seleccione el ejercicio : </label>
+            <select id="seleccionEjerciciosAlumno">
+              <option value="">--Seleccionar--</option>
+            </select>
+            <br><br>
+            <div id="VerEjercicioPlanteado"></div>
+            <label for="entregarAudio">Adjunte archivo de entrega</label>
+            <input type="file" id="entregarAudio" placeholder="Ingresar archivo">
+            <br><br>
+            <input type="button" id="EnviarTarea" value="Guardar y enviar tarea">
+            <br><br>
+            <div id="mensajeEntregaTarea"></div>
+          </div>
+    
+            <div id="EjerciciosPlanteados" style="display: none;">
+            <h3>Ejercicios planteados por docente</h3>
+            <label for="BuscadorEjerciciosAlumno">Buscar ejercicio:</label>
+            <input type="text" id="BuscadorEjerciciosAlumno">
+            <br><br>
+            <input type="button" id="btnBuscarEjercicioAlumno" value="Buscar ejercicio"><br>
+
+            <input type="button" id="btnMostrarTodosEjerciciosPlanteados" value="Ver Todos los Ejercicios" style="display: none;">
+            <br><br>
+            <div id='MensajeEjerciciosPlanteados'></div>
+            <br><br>
+            <div id='ResultadoEjerciciosPlanteados'></div>
+          </div>
+
+          <div id="VerEjerciciosResultos" style="display: none;">
+            <h3>Ver ejercicios resueltos</h3>    
+            <div id="EjerciciosRealizadosAlumno"></div>
+          </div>
+
+          <div id="VisualizarInformacionEstadisticaALUMNOS" style="display: none;">
+            <h3>Visualizar información estadística</h3>
+            <br><br>
+            <div id="EstadisticasAlumnos"></div>
+          </div>
+
+    <div class="ejercicios">
+        
+    </div>
+        <!--FIN EJERCICIOS-->
+    </div><!-- FIN CONTENIDO -->
+    <div id="pie">
+        <a href="https://www.ort.edu.uy">Footer</a>
+    </div><!-- FIN PIE -->
+    </div><!-- FIN CONTENEDOR -->
+    <script type="text/javascript" src="js/clases.js"></script>
+    <script type="text/javascript" src="js/miCodigo.js"></script>
+	</body> 
+</html>
